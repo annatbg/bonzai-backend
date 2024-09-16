@@ -2,7 +2,7 @@
 org: js2023
 # "service" is the name of this project. This will also be added to your AWS resource names.
 service: bonzai
-frameworkVersion: "4"
+
 
 provider:
   name: aws
