@@ -1,0 +1,81 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: js2023
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: bonzai
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+  iam: 
+  role:
+  statements:
+  - Effect: Allow
+  Action:
+  -dynamodb:Query
+  -dynamodb:Scan
+  -dynamodb:GetItem
+  -dynamodb:PutItem
+  Resource: arn:aws:dynamodb:eu-north-1:*
+
+  build:
+  esbuild:
+  minify: true
+
+  
+
+functions:
+  getRooms:
+    handler: getRooms/index.handler
+    events:
+      - httpApi:
+          path: /rooms
+          method: get
+
+
+           addRoom:
+    handler: addRoom/index.handler
+    events:
+      - httpApi:
+          path: /rooms
+          method: post
+
+
+resources:
+  Resources:
+    rooms:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: rooms
+        AttributeDefinitions:
+          
+AttributeName: id
+          AttributeType: S
+AttributeName: RoomType
+        AttributeType: S
+    KeySchema:
+AttributeName: id
+      KeyType: HASH
+AttributeName: RoomType
+    KeyType: "RANGE"
+
+        BillingMode: PAY_PER_REQUEST
+
+            bookings:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: bookings
+        AttributeDefinitions:
+          
+AttributeName: id
+          AttributeType: S
+AttributeName: CustomerId
+        AttributeType: S
+    KeySchema:
+AttributeName: CustomerId
+      KeyType: HASH
+AttributeName: id
+    KeyType: "RANGE"
+
+        BillingMode: PAY_PER_REQUEST
