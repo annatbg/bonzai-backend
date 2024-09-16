@@ -17,7 +17,7 @@ provider:
             - dynamodb:Scan
             - dynamodb:GetItem
             - dynamodb:PutItem
-          Resource: arn:aws:dynamodb:eu-north-1:*
+          # Resource: arn:aws:dynamodb:eu-north-1:*
 
   build:
     esbuild:
