@@ -1,5 +1,5 @@
 {
-  "C:\\Users\\rebec\\Desktop\\bonzai-backend": {
+  "C:\\Users\\dator\\OneDrive\\Skrivbord\\Bonzai\\bonzai-backend-1": {
     "versionSfCore": null,
     "versionFramework": "4.3.2",
     "isWithinCompose": false,
@@ -142,8 +142,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726487919444-2024-09-16T11:58:39.444Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726490594248-2024-09-16T12:43:14.248Z/bonzai.zip"
                       },
                       "Handler": "getRooms/index.handler",
                       "Runtime": "nodejs20.x",
@@ -165,8 +165,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726487919444-2024-09-16T11:58:39.444Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726490594248-2024-09-16T12:43:14.248Z/bonzai.zip"
                       },
                       "Handler": "addRoom/index.handler",
                       "Runtime": "nodejs20.x",
@@ -431,7 +431,7 @@
                 },
                 "Outputs": {
                   "ServerlessDeploymentBucketName": {
-                    "Value": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+                    "Value": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
                     "Export": {
                       "Name": "sls-bonzai-dev-ServerlessDeploymentBucketName"
                     }
@@ -594,7 +594,7 @@
               "Outputs": {}
             }
           },
-          "configFileDirPath": "C:\\Users\\rebec\\Desktop\\bonzai-backend",
+          "configFileDirPath": "C:\\Users\\dator\\OneDrive\\Skrivbord\\Bonzai\\bonzai-backend-1",
           "config": {
             "type": "aws"
           },
@@ -613,7 +613,7 @@
       }
     },
     "composeServiceName": null,
-    "servicePath": "C:\\Users\\rebec\\Desktop\\bonzai-backend",
+    "servicePath": "C:\\Users\\dator\\OneDrive\\Skrivbord\\Bonzai\\bonzai-backend-1",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "service": "bonzai",
@@ -747,8 +747,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726487919444-2024-09-16T11:58:39.444Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726490594248-2024-09-16T12:43:14.248Z/bonzai.zip"
                 },
                 "Handler": "getRooms/index.handler",
                 "Runtime": "nodejs20.x",
@@ -770,8 +770,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726487919444-2024-09-16T11:58:39.444Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726490594248-2024-09-16T12:43:14.248Z/bonzai.zip"
                 },
                 "Handler": "addRoom/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1036,7 +1036,7 @@
           },
           "Outputs": {
             "ServerlessDeploymentBucketName": {
-              "Value": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+              "Value": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
               "Export": {
                 "Name": "sls-bonzai-dev-ServerlessDeploymentBucketName"
               }
@@ -1206,13 +1206,13 @@
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "ebc7c97ad3fcfb4ca8900462392cf160",
+    "machineId": "7c7777551fadac7e236a8b80df491166",
     "stage": "dev",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
-    "orgId": "5d743e18-3d3e-43a5-9cc0-62b473aca814",
-    "orgName": "jsd23",
-    "userId": "4xhQq6rJbd0yBKMcPD",
+    "orgId": "22ef86e7-c736-4e9a-b3ab-223376e51322",
+    "orgName": "ahmedabbas",
+    "userId": "lRsVzwLxQZPgX9KRRb",
     "dashboard": {
       "isEnabledForService": false,
       "requiredAuthentication": false,
@@ -1222,48 +1222,48 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "userName": "jsd23",
+    "userName": "ahmedabbas",
     "subscription": null,
-    "userEmail": "rebeckaelin@hotmail.com",
+    "userEmail": "ahmed2004a2@gmail.com",
     "serviceProviderAwsRegion": "eu-north-1",
     "serviceProviderAwsCredentials": "<REDACTED>",
-    "serviceProviderAwsAccountId": "440744238402",
+    "serviceProviderAwsAccountId": "288761744319",
     "projectType": "traditional",
     "versionSf": "4.3.2",
     "serviceProviderAwsCfStackName": "bonzai-dev",
     "integrations": {},
-    "serviceUniqueId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/c6a273a0-7422-11ef-8ad3-0aae482cd40b",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/c6a273a0-7422-11ef-8ad3-0aae482cd40b",
-    "serviceProviderAwsCfStackCreated": "2024-09-16T11:56:58.651Z",
-    "serviceProviderAwsCfStackUpdated": "2024-09-16T11:58:41.896Z",
-    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceUniqueId": "arn:aws:cloudformation:eu-north-1:288761744319:stack/bonzai-dev/42405c10-7429-11ef-8e05-0a589db52b2f",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:288761744319:stack/bonzai-dev/42405c10-7429-11ef-8e05-0a589db52b2f",
+    "serviceProviderAwsCfStackCreated": "2024-09-16T12:43:23.052Z",
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "AddRoomLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-addRoom:1",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-addRoom:1",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetRoomsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-getRooms:1",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-getRooms:1",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "HttpApiId",
-        "OutputValue": "967zeabgrc",
+        "OutputValue": "o9j14vok0e",
         "Description": "Id of the HTTP API",
         "ExportName": "sls-bonzai-dev-HttpApiId"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
-        "OutputValue": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+        "OutputValue": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
         "ExportName": "sls-bonzai-dev-ServerlessDeploymentBucketName"
       },
       {
         "OutputKey": "HttpApiUrl",
-        "OutputValue": "https://967zeabgrc.execute-api.eu-north-1.amazonaws.com",
+        "OutputValue": "https://o9j14vok0e.execute-api.eu-north-1.amazonaws.com",
         "Description": "URL of the HTTP API",
         "ExportName": "sls-bonzai-dev-HttpApiUrl"
       }

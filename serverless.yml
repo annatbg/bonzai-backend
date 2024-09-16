@@ -1,8 +1,5 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
-# org: js2023
-# "service" is the name of this project. This will also be added to your AWS resource names.
+org: js2023
 service: bonzai
-
 
 provider:
   name: aws
@@ -45,12 +42,21 @@ resources:
             AttributeType: S
           - AttributeName: RoomType
             AttributeType: S
+          - AttributeName: Quantity
+            AttributeType: N
         KeySchema:
           - AttributeName: id
             KeyType: HASH
           - AttributeName: RoomType
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
+        GlobalSecondaryIndexes:
+          - IndexName: RoomTypeIndex
+            KeySchema:
+              - AttributeName: RoomType
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
 
     bookings:
       Type: AWS::DynamoDB::Table
@@ -61,9 +67,28 @@ resources:
             AttributeType: S
           - AttributeName: CustomerId
             AttributeType: S
+          - AttributeName: checkin
+            AttributeType: S
+          - AttributeName: checkout
+            AttributeType: S
+          - AttributeName: Guests
+            AttributeType: N
+          - AttributeName: RoomType
+            AttributeType: S
+          - AttributeName: RoomQuantity
+            AttributeType: N
+          - AttributeName: TotalSum
+            AttributeType: N
         KeySchema:
           - AttributeName: CustomerId
             KeyType: HASH
           - AttributeName: id
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
+        GlobalSecondaryIndexes:
+          - IndexName: CheckinIndex
+            KeySchema:
+              - AttributeName: checkin
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
