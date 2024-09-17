@@ -143,7 +143,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726562745444-2024-09-17T08:45:45.444Z/bonzai.zip"
+                        "S3Key": "serverless/bonzai/dev/1726566784721-2024-09-17T09:53:04.721Z/bonzai.zip"
                       },
                       "Handler": "getRooms/index.handler",
                       "Runtime": "nodejs20.x",
@@ -166,7 +166,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726562745444-2024-09-17T08:45:45.444Z/bonzai.zip"
+                        "S3Key": "serverless/bonzai/dev/1726566784721-2024-09-17T09:53:04.721Z/bonzai.zip"
                       },
                       "Handler": "addRoom/index.handler",
                       "Runtime": "nodejs20.x",
@@ -184,24 +184,24 @@
                       "AddRoomLogGroup"
                     ]
                   },
-                  "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE": {
+                  "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "GetRoomsLambdaFunction"
                       },
-                      "CodeSha256": "JJNpjC2p66r+NMi7zgTqML3DgtV4dezepcIN7ZnAwYk="
+                      "CodeSha256": "NpcmYFKh6tNKOHTSuEzytnBrxoJX9Vb/X4M3j5+931I="
                     }
                   },
-                  "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM": {
+                  "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "AddRoomLambdaFunction"
                       },
-                      "CodeSha256": "JJNpjC2p66r+NMi7zgTqML3DgtV4dezepcIN7ZnAwYk="
+                      "CodeSha256": "NpcmYFKh6tNKOHTSuEzytnBrxoJX9Vb/X4M3j5+931I="
                     }
                   },
                   "HttpApi": {
@@ -398,7 +398,21 @@
                           "KeyType": "RANGE"
                         }
                       ],
-                      "BillingMode": "PAY_PER_REQUEST"
+                      "BillingMode": "PAY_PER_REQUEST",
+                      "GlobalSecondaryIndexes": [
+                        {
+                          "IndexName": "RoomTypeIndex",
+                          "KeySchema": [
+                            {
+                              "AttributeName": "RoomType",
+                              "KeyType": "HASH"
+                            }
+                          ],
+                          "Projection": {
+                            "ProjectionType": "ALL"
+                          }
+                        }
+                      ]
                     }
                   },
                   "bookings": {
@@ -439,7 +453,7 @@
                   "GetRoomsLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE"
+                      "Ref": "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
@@ -448,7 +462,7 @@
                   "AddRoomLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM"
+                      "Ref": "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
@@ -511,7 +525,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE"
+                "versionLogicalId": "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY"
               },
               "addRoom": {
                 "handler": "addRoom/index.handler",
@@ -531,7 +545,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM"
+                "versionLogicalId": "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg"
               }
             },
             "resources": {
@@ -560,7 +574,21 @@
                         "KeyType": "RANGE"
                       }
                     ],
-                    "BillingMode": "PAY_PER_REQUEST"
+                    "BillingMode": "PAY_PER_REQUEST",
+                    "GlobalSecondaryIndexes": [
+                      {
+                        "IndexName": "RoomTypeIndex",
+                        "KeySchema": [
+                          {
+                            "AttributeName": "RoomType",
+                            "KeyType": "HASH"
+                          }
+                        ],
+                        "Projection": {
+                          "ProjectionType": "ALL"
+                        }
+                      }
+                    ]
                   }
                 },
                 "bookings": {
@@ -748,7 +776,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726562745444-2024-09-17T08:45:45.444Z/bonzai.zip"
+                  "S3Key": "serverless/bonzai/dev/1726566784721-2024-09-17T09:53:04.721Z/bonzai.zip"
                 },
                 "Handler": "getRooms/index.handler",
                 "Runtime": "nodejs20.x",
@@ -771,7 +799,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726562745444-2024-09-17T08:45:45.444Z/bonzai.zip"
+                  "S3Key": "serverless/bonzai/dev/1726566784721-2024-09-17T09:53:04.721Z/bonzai.zip"
                 },
                 "Handler": "addRoom/index.handler",
                 "Runtime": "nodejs20.x",
@@ -789,24 +817,24 @@
                 "AddRoomLogGroup"
               ]
             },
-            "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE": {
+            "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetRoomsLambdaFunction"
                 },
-                "CodeSha256": "JJNpjC2p66r+NMi7zgTqML3DgtV4dezepcIN7ZnAwYk="
+                "CodeSha256": "NpcmYFKh6tNKOHTSuEzytnBrxoJX9Vb/X4M3j5+931I="
               }
             },
-            "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM": {
+            "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddRoomLambdaFunction"
                 },
-                "CodeSha256": "JJNpjC2p66r+NMi7zgTqML3DgtV4dezepcIN7ZnAwYk="
+                "CodeSha256": "NpcmYFKh6tNKOHTSuEzytnBrxoJX9Vb/X4M3j5+931I="
               }
             },
             "HttpApi": {
@@ -1003,7 +1031,21 @@
                     "KeyType": "RANGE"
                   }
                 ],
-                "BillingMode": "PAY_PER_REQUEST"
+                "BillingMode": "PAY_PER_REQUEST",
+                "GlobalSecondaryIndexes": [
+                  {
+                    "IndexName": "RoomTypeIndex",
+                    "KeySchema": [
+                      {
+                        "AttributeName": "RoomType",
+                        "KeyType": "HASH"
+                      }
+                    ],
+                    "Projection": {
+                      "ProjectionType": "ALL"
+                    }
+                  }
+                ]
               }
             },
             "bookings": {
@@ -1044,7 +1086,7 @@
             "GetRoomsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE"
+                "Ref": "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
@@ -1053,7 +1095,7 @@
             "AddRoomLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM"
+                "Ref": "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
@@ -1116,7 +1158,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "GetRoomsLambdaVersionzSmTeGy3DpZSHTAFtFotj8oYleaPmHf1aaLUGuzaE"
+          "versionLogicalId": "GetRoomsLambdaVersiontBKTs02YZWeYk3jEYlTtl1Uz9NGc0HBoykqoeY"
         },
         "addRoom": {
           "handler": "addRoom/index.handler",
@@ -1136,7 +1178,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "AddRoomLambdaVersionqqaSgV7yedUZPjEIVJv5pBmp7jG5CX9wKcLdz8AzhM"
+          "versionLogicalId": "AddRoomLambdaVersionWeulHmNa9PjtPtAYPV3ltxtPmgwHMaBX3XPEcZDaAg"
         }
       },
       "resources": {
@@ -1165,7 +1207,21 @@
                   "KeyType": "RANGE"
                 }
               ],
-              "BillingMode": "PAY_PER_REQUEST"
+              "BillingMode": "PAY_PER_REQUEST",
+              "GlobalSecondaryIndexes": [
+                {
+                  "IndexName": "RoomTypeIndex",
+                  "KeySchema": [
+                    {
+                      "AttributeName": "RoomType",
+                      "KeyType": "HASH"
+                    }
+                  ],
+                  "Projection": {
+                    "ProjectionType": "ALL"
+                  }
+                }
+              ]
             }
           },
           "bookings": {
@@ -1199,7 +1255,7 @@
         "Outputs": {}
       }
     },
-    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\r\n# org: js2023\r\n# \"service\" is the name of this project. This will also be added to your AWS resource names.\r\nservice: bonzai\r\n\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: eu-north-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - dynamodb:Query\r\n            - dynamodb:Scan\r\n            - dynamodb:GetItem\r\n            - dynamodb:PutItem\r\n          Resource: arn:aws:dynamodb:${aws:region}:*:table/*\r\n\r\nfunctions:\r\n  getRooms:\r\n    handler: getRooms/index.handler\r\n    events:\r\n      - httpApi:\r\n          path: /rooms\r\n          method: get\r\n\r\n  addRoom:\r\n    handler: addRoom/index.handler\r\n    events:\r\n      - httpApi:\r\n          path: /rooms\r\n          method: post\r\n\r\nresources:\r\n  Resources:\r\n    rooms:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: rooms\r\n        AttributeDefinitions:\r\n          - AttributeName: id\r\n            AttributeType: S\r\n          - AttributeName: RoomType\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: id\r\n            KeyType: HASH\r\n          - AttributeName: RoomType\r\n            KeyType: RANGE\r\n        BillingMode: PAY_PER_REQUEST\r\n\r\n    bookings:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: bookings\r\n        AttributeDefinitions:\r\n          - AttributeName: id\r\n            AttributeType: S\r\n          - AttributeName: CustomerId\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: CustomerId\r\n            KeyType: HASH\r\n          - AttributeName: id\r\n            KeyType: RANGE\r\n        BillingMode: PAY_PER_REQUEST\r\n",
+    "serviceRawFile": "# org: js2023\r\nservice: bonzai\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: eu-north-1\r\n  iam:\r\n    role:\r\n      statements:\r\n        - Effect: Allow\r\n          Action:\r\n            - dynamodb:Query\r\n            - dynamodb:Scan\r\n            - dynamodb:GetItem\r\n            - dynamodb:PutItem\r\n          Resource: arn:aws:dynamodb:${aws:region}:*:table/*\r\n\r\nfunctions:\r\n  getRooms:\r\n    handler: getRooms/index.handler\r\n    events:\r\n      - httpApi:\r\n          path: /rooms\r\n          method: get\r\n\r\n  addRoom:\r\n    handler: addRoom/index.handler\r\n    events:\r\n      - httpApi:\r\n          path: /rooms\r\n          method: post\r\n\r\nresources:\r\n  Resources:\r\n    rooms:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: rooms\r\n        AttributeDefinitions:\r\n          - AttributeName: id\r\n            AttributeType: S\r\n          - AttributeName: RoomType\r\n            AttributeType: S\r\n\r\n        KeySchema:\r\n          - AttributeName: id\r\n            KeyType: HASH\r\n          - AttributeName: RoomType\r\n            KeyType: RANGE\r\n        BillingMode: PAY_PER_REQUEST\r\n        GlobalSecondaryIndexes:\r\n          - IndexName: RoomTypeIndex\r\n            KeySchema:\r\n              - AttributeName: RoomType\r\n                KeyType: HASH\r\n            Projection:\r\n              ProjectionType: ALL\r\n\r\n    bookings:\r\n      Type: AWS::DynamoDB::Table\r\n      Properties:\r\n        TableName: bookings\r\n        AttributeDefinitions:\r\n          - AttributeName: id\r\n            AttributeType: S\r\n          - AttributeName: CustomerId\r\n            AttributeType: S\r\n        KeySchema:\r\n          - AttributeName: CustomerId\r\n            KeyType: HASH\r\n          - AttributeName: id\r\n            KeyType: RANGE\r\n        BillingMode: PAY_PER_REQUEST\r\n      \r\n",
     "command": [
       "deploy"
     ],
@@ -1235,18 +1291,18 @@
     "serviceUniqueId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/c6a273a0-7422-11ef-8ad3-0aae482cd40b",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/c6a273a0-7422-11ef-8ad3-0aae482cd40b",
     "serviceProviderAwsCfStackCreated": "2024-09-16T11:56:58.651Z",
-    "serviceProviderAwsCfStackUpdated": "2024-09-17T08:45:47.253Z",
+    "serviceProviderAwsCfStackUpdated": "2024-09-17T09:53:07.627Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "AddRoomLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-addRoom:4",
+        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-addRoom:13",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetRoomsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-getRooms:4",
+        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-getRooms:13",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
       },
