@@ -1,10 +1,10 @@
-const { log } = require("console")
+
 const {db} = require("../db")
 const {v4: uuid} = require("uuid")
 
 exports.handler = async (event) => {
     const body = JSON.parse(event.body)
-    console.log(event);
+    // console.log(event);
     
 
     if (body.roomType === undefined || body.price === undefined || body.available === undefined|| body.allowedGuests === undefined) {

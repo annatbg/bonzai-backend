@@ -32,6 +32,27 @@ functions:
           path: /rooms
           method: post
 
+  deleteBooking:
+    handler: deleteBooking/index.handler
+    events:
+      - httpApi:
+          path: /bookings/{id}
+          method: delete
+
+  getBookings:
+    handler: getBookings/index.handler
+    events:
+      - httpApi:
+          path: /bookings
+          method: get
+
+  getCustomer:
+    handler: getCustomer/index.handler
+    events:
+      - httpApi:
+          path: /bookings/{customerId}
+          method: get
+
 resources:
   Resources:
     rooms:
@@ -62,15 +83,22 @@ resources:
       Properties:
         TableName: bookings
         AttributeDefinitions:
-          - AttributeName: id
+          - AttributeName: bookingReference
             AttributeType: S
           - AttributeName: CustomerId
             AttributeType: S
-
         KeySchema:
-          - AttributeName: CustomerId
+          - AttributeName: bookingReference
             KeyType: HASH
-          - AttributeName: id
+          - AttributeName: CustomerId
             KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
+
+        # GlobalSecondaryIndexes:
+        #   - IndexName: 
+        #     KeySchema:
+        #       - AttributeName: 
+        #         KeyType: "RANGE"
+        #     Projection:
+        #       ProjectionType: ALL
 
