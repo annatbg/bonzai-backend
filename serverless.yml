@@ -1,4 +1,4 @@
-org: js2023
+# org: js2023
 service: bonzai
 
 provider:
@@ -42,21 +42,19 @@ resources:
             AttributeType: S
           - AttributeName: RoomType
             AttributeType: S
-          - AttributeName: Quantity
-            AttributeType: N
         KeySchema:
           - AttributeName: id
             KeyType: HASH
           - AttributeName: RoomType
-            KeyType: RANGE
+            KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
-        GlobalSecondaryIndexes:
-          - IndexName: RoomTypeIndex
-            KeySchema:
-              - AttributeName: RoomType
-                KeyType: HASH
-            Projection:
-              ProjectionType: ALL
+        # GlobalSecondaryIndexes:
+        #   - IndexName: RoomTypeIndex
+        #     KeySchema:
+        #       - AttributeName: RoomType
+        #         KeyType: "RANGE"
+        #     Projection:
+        #       ProjectionType: ALL
 
     bookings:
       Type: AWS::DynamoDB::Table
@@ -67,28 +65,11 @@ resources:
             AttributeType: S
           - AttributeName: CustomerId
             AttributeType: S
-          - AttributeName: checkin
-            AttributeType: S
-          - AttributeName: checkout
-            AttributeType: S
-          - AttributeName: Guests
-            AttributeType: N
-          - AttributeName: RoomType
-            AttributeType: S
-          - AttributeName: RoomQuantity
-            AttributeType: N
-          - AttributeName: TotalSum
-            AttributeType: N
+
         KeySchema:
           - AttributeName: CustomerId
             KeyType: HASH
           - AttributeName: id
-            KeyType: RANGE
+            KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
-        GlobalSecondaryIndexes:
-          - IndexName: CheckinIndex
-            KeySchema:
-              - AttributeName: checkin
-                KeyType: HASH
-            Projection:
-              ProjectionType: ALL
+
