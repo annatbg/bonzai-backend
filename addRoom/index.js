@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     // console.log(event);
     
 
-    if (body.roomType === undefined || body.price === undefined || body.available === undefined|| body.allowedGuests === undefined) {
+    if (body.roomType === undefined || body.price === undefined || body.allowedGuests === undefined) {
         return {
             statusCode: 400,
             body: JSON.stringify({message: "Please provide the following keys: roomType, price, avaiable and allowedGuests."})
@@ -17,10 +17,9 @@ exports.handler = async (event) => {
         await db.put({
             TableName: "rooms",
             Item: {
-                id: uuid(),
-                RoomType: body.roomType,
+                id: `${body.roomType}:${uuid()}`,
+                type: "room",
                 price: body.price,
-                available: body.available,
                 allowedGuests: body.allowedGuests
             }
         })
