@@ -22,7 +22,7 @@ functions:
     handler: getRooms/index.handler
     events:
       - httpApi:
-          path: /rooms
+          path: /rooms/{type}
           method: get
 
   addRoom:
@@ -44,13 +44,6 @@ functions:
     events:
       - httpApi:
           path: /bookings
-          method: get
-
-  getCustomer:
-    handler: getCustomer/index.handler
-    events:
-      - httpApi:
-          path: /bookings/{customerId}
           method: get
           
   newBooking:
@@ -92,12 +85,12 @@ resources:
         AttributeDefinitions:
           - AttributeName: bookingReference
             AttributeType: S
-          - AttributeName: customer
+          - AttributeName: booking
             AttributeType: S
         KeySchema:
-          - AttributeName: bookingReference
+          - AttributeName: booking
             KeyType: HASH
-          - AttributeName: customer
+          - AttributeName: bookingReference
             KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
 

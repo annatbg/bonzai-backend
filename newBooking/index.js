@@ -90,7 +90,8 @@ exports.handler = async (event) => {
                 rooms: roomTYP,
                 guests: numberOfGuests,
                 nights: numberOfNights,
-                checkInDate: checkIn
+                checkInDate: checkIn,
+                booking: "room"
             }
         };
         await db.put(newBookingParams);
