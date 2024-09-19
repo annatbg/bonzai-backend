@@ -22,7 +22,7 @@ functions:
     handler: getRooms/index.handler
     events:
       - httpApi:
-          path: /rooms
+          path: /rooms/{type}
           method: get
 
   addRoom:
