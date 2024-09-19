@@ -45,13 +45,6 @@ functions:
       - httpApi:
           path: /bookings
           method: get
-
-  getCustomer:
-    handler: getCustomer/index.handler
-    events:
-      - httpApi:
-          path: /bookings/{customerId}
-          method: get
           
   newBooking:
     handler: newBooking/index.handler
