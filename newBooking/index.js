@@ -87,7 +87,7 @@ exports.handler = async (event) => {
             Item: {
                 bookingReference: uuidv4(),
                 customer: customerName,
-                rooms: roomTYP,
+                typeOfRooms: roomTYP,
                 guests: numberOfGuests,
                 nights: numberOfNights,
                 checkInDate: checkIn,
