@@ -62,7 +62,7 @@
                       "LogGroupName": "/aws/lambda/bonzai-dev-getBookings"
                     }
                   },
-                  "GetCustomerLogGroup": {
+                  "NewBookingLogGroup": {
                     "Type": "AWS::Logs::LogGroup",
                     "Properties": {
                       "LogGroupName": "/aws/lambda/bonzai-dev-getCustomer"
@@ -167,6 +167,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+                        "S3Key": "serverless/bonzai/dev/1726752133034-2024-09-19T13:22:13.034Z/bonzai.zip"
                         "S3Key": "serverless/bonzai/dev/1726750370206-2024-09-19T12:52:50.206Z/bonzai.zip"
                       },
                       "Handler": "getRooms/index.handler",
@@ -254,16 +255,16 @@
                       "GetBookingsLogGroup"
                     ]
                   },
-                  "GetCustomerLambdaFunction": {
+                  "NewBookingLambdaFunction": {
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
                         "S3Key": "serverless/bonzai/dev/1726750370206-2024-09-19T12:52:50.206Z/bonzai.zip"
                       },
-                      "Handler": "getCustomer/index.handler",
+                      "Handler": "newBooking/index.handler",
                       "Runtime": "nodejs20.x",
-                      "FunctionName": "bonzai-dev-getCustomer",
+                      "FunctionName": "bonzai-dev-newBooking",
                       "MemorySize": 1024,
                       "Timeout": 6,
                       "Role": {
@@ -274,7 +275,7 @@
                       }
                     },
                     "DependsOn": [
-                      "GetCustomerLogGroup"
+                      "NewBookingLogGroup"
                     ]
                   },
                   "NewBookingLambdaFunction": {
@@ -345,7 +346,7 @@
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
-                        "Ref": "GetCustomerLambdaFunction"
+                        "Ref": "NewBookingLambdaFunction"
                       },
                       "CodeSha256": "GP4J9mkaYPpUMzYxIy5Vh3BeahYOpEVXp2YVyyL3w6Y="
                     }
@@ -680,12 +681,12 @@
                     },
                     "DependsOn": "HttpApiIntegrationGetBookings"
                   },
-                  "GetCustomerLambdaPermissionHttpApi": {
+                  "NewBookingLambdaPermissionHttpApi": {
                     "Type": "AWS::Lambda::Permission",
                     "Properties": {
                       "FunctionName": {
                         "Fn::GetAtt": [
-                          "GetCustomerLambdaFunction",
+                          "NewBookingLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -717,7 +718,7 @@
                       }
                     }
                   },
-                  "HttpApiIntegrationGetCustomer": {
+                  "HttpApiIntegrationNewBooking": {
                     "Type": "AWS::ApiGatewayV2::Integration",
                     "Properties": {
                       "ApiId": {
@@ -726,7 +727,7 @@
                       "IntegrationType": "AWS_PROXY",
                       "IntegrationUri": {
                         "Fn::GetAtt": [
-                          "GetCustomerLambdaFunction",
+                          "NewBookingLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -734,20 +735,20 @@
                       "TimeoutInMillis": 30000
                     }
                   },
-                  "HttpApiRouteGetBookingsCustomeridVar": {
+                  "HttpApiRoutePostBookings": {
                     "Type": "AWS::ApiGatewayV2::Route",
                     "Properties": {
                       "ApiId": {
                         "Ref": "HttpApi"
                       },
-                      "RouteKey": "GET /bookings/{customerId}",
+                      "RouteKey": "POST /bookings",
                       "Target": {
                         "Fn::Join": [
                           "/",
                           [
                             "integrations",
                             {
-                              "Ref": "HttpApiIntegrationGetCustomer"
+                              "Ref": "HttpApiIntegrationNewBooking"
                             }
                           ]
                         ]
@@ -873,7 +874,7 @@
                       ],
                       "KeySchema": [
                         {
-                          "AttributeName": "bookingReference",
+                          "AttributeName": "booking",
                           "KeyType": "HASH"
                         },
                         {
@@ -928,7 +929,7 @@
                       "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
                     }
                   },
-                  "GetCustomerLambdaFunctionQualifiedArn": {
+                  "NewBookingLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
                       "Ref": "GetCustomerLambdaVersionIam3o7jP6WZhza1Khl4ZBfnoZQBCCIHCge5Qqc"
@@ -1065,19 +1066,19 @@
                 "vpc": {},
                 "versionLogicalId": "GetBookingsLambdaVersionzBOCdagWDVENqri4PA4wbulIXevCRQopSfTnj50XE"
               },
-              "getCustomer": {
-                "handler": "getCustomer/index.handler",
+              "newBooking": {
+                "handler": "newBooking/index.handler",
                 "events": [
                   {
                     "httpApi": {
-                      "path": "/bookings/{customerId}",
-                      "method": "get"
+                      "path": "/bookings",
+                      "method": "post"
                     },
-                    "resolvedMethod": "GET",
-                    "resolvedPath": "/bookings/{customerId}"
+                    "resolvedMethod": "POST",
+                    "resolvedPath": "/bookings"
                   }
                 ],
-                "name": "bonzai-dev-getCustomer",
+                "name": "bonzai-dev-newBooking",
                 "package": {},
                 "memory": 1024,
                 "timeout": 6,
@@ -1151,7 +1152,7 @@
                     ],
                     "KeySchema": [
                       {
-                        "AttributeName": "bookingReference",
+                        "AttributeName": "booking",
                         "KeyType": "HASH"
                       },
                       {
@@ -1239,7 +1240,7 @@
                 "LogGroupName": "/aws/lambda/bonzai-dev-getBookings"
               }
             },
-            "GetCustomerLogGroup": {
+            "NewBookingLogGroup": {
               "Type": "AWS::Logs::LogGroup",
               "Properties": {
                 "LogGroupName": "/aws/lambda/bonzai-dev-getCustomer"
@@ -1431,16 +1432,16 @@
                 "GetBookingsLogGroup"
               ]
             },
-            "GetCustomerLambdaFunction": {
+            "NewBookingLambdaFunction": {
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
                   "S3Key": "serverless/bonzai/dev/1726750370206-2024-09-19T12:52:50.206Z/bonzai.zip"
                 },
-                "Handler": "getCustomer/index.handler",
+                "Handler": "newBooking/index.handler",
                 "Runtime": "nodejs20.x",
-                "FunctionName": "bonzai-dev-getCustomer",
+                "FunctionName": "bonzai-dev-newBooking",
                 "MemorySize": 1024,
                 "Timeout": 6,
                 "Role": {
@@ -1451,7 +1452,7 @@
                 }
               },
               "DependsOn": [
-                "GetCustomerLogGroup"
+                "NewBookingLogGroup"
               ]
             },
             "NewBookingLambdaFunction": {
@@ -1522,7 +1523,7 @@
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
-                  "Ref": "GetCustomerLambdaFunction"
+                  "Ref": "NewBookingLambdaFunction"
                 },
                 "CodeSha256": "GP4J9mkaYPpUMzYxIy5Vh3BeahYOpEVXp2YVyyL3w6Y="
               }
@@ -1857,12 +1858,12 @@
               },
               "DependsOn": "HttpApiIntegrationGetBookings"
             },
-            "GetCustomerLambdaPermissionHttpApi": {
+            "NewBookingLambdaPermissionHttpApi": {
               "Type": "AWS::Lambda::Permission",
               "Properties": {
                 "FunctionName": {
                   "Fn::GetAtt": [
-                    "GetCustomerLambdaFunction",
+                    "NewBookingLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -1894,7 +1895,7 @@
                 }
               }
             },
-            "HttpApiIntegrationGetCustomer": {
+            "HttpApiIntegrationNewBooking": {
               "Type": "AWS::ApiGatewayV2::Integration",
               "Properties": {
                 "ApiId": {
@@ -1903,7 +1904,7 @@
                 "IntegrationType": "AWS_PROXY",
                 "IntegrationUri": {
                   "Fn::GetAtt": [
-                    "GetCustomerLambdaFunction",
+                    "NewBookingLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -1911,20 +1912,20 @@
                 "TimeoutInMillis": 30000
               }
             },
-            "HttpApiRouteGetBookingsCustomeridVar": {
+            "HttpApiRoutePostBookings": {
               "Type": "AWS::ApiGatewayV2::Route",
               "Properties": {
                 "ApiId": {
                   "Ref": "HttpApi"
                 },
-                "RouteKey": "GET /bookings/{customerId}",
+                "RouteKey": "POST /bookings",
                 "Target": {
                   "Fn::Join": [
                     "/",
                     [
                       "integrations",
                       {
-                        "Ref": "HttpApiIntegrationGetCustomer"
+                        "Ref": "HttpApiIntegrationNewBooking"
                       }
                     ]
                   ]
@@ -2050,7 +2051,7 @@
                 ],
                 "KeySchema": [
                   {
-                    "AttributeName": "bookingReference",
+                    "AttributeName": "booking",
                     "KeyType": "HASH"
                   },
                   {
@@ -2105,7 +2106,7 @@
                 "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
               }
             },
-            "GetCustomerLambdaFunctionQualifiedArn": {
+            "NewBookingLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
                 "Ref": "GetCustomerLambdaVersionIam3o7jP6WZhza1Khl4ZBfnoZQBCCIHCge5Qqc"
@@ -2242,19 +2243,19 @@
           "vpc": {},
           "versionLogicalId": "GetBookingsLambdaVersionzBOCdagWDVENqri4PA4wbulIXevCRQopSfTnj50XE"
         },
-        "getCustomer": {
-          "handler": "getCustomer/index.handler",
+        "newBooking": {
+          "handler": "newBooking/index.handler",
           "events": [
             {
               "httpApi": {
-                "path": "/bookings/{customerId}",
-                "method": "get"
+                "path": "/bookings",
+                "method": "post"
               },
-              "resolvedMethod": "GET",
-              "resolvedPath": "/bookings/{customerId}"
+              "resolvedMethod": "POST",
+              "resolvedPath": "/bookings"
             }
           ],
-          "name": "bonzai-dev-getCustomer",
+          "name": "bonzai-dev-newBooking",
           "package": {},
           "memory": 1024,
           "timeout": 6,
@@ -2328,7 +2329,7 @@
               ],
               "KeySchema": [
                 {
-                  "AttributeName": "bookingReference",
+                  "AttributeName": "booking",
                   "KeyType": "HASH"
                 },
                 {

@@ -10,7 +10,7 @@ exports.handler = async (event) => {
     if (body.roomType === undefined || body.price === undefined || body.allowedGuests === undefined) {
         return {
             statusCode: 400,
-            body: JSON.stringify({message: "Please provide the following keys: roomType, price, avaiable and allowedGuests."})
+            body: JSON.stringify({message: "Please provide the following keys: type, price, and allowedGuests."})
         };
     }
     try {

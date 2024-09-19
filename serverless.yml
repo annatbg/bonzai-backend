@@ -88,6 +88,8 @@ resources:
           - AttributeName: customer
             AttributeType: S
         KeySchema:
+          - AttributeName: booking
+            KeyType: HASH
           - AttributeName: bookingReference
             KeyType: HASH
           - AttributeName: customer
