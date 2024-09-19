@@ -52,6 +52,13 @@ functions:
       - httpApi:
           path: /bookings/{customerId}
           method: get
+          
+  newBooking:
+    handler: newBooking/index.handler
+    events:
+      - httpApi:
+          path: /bookings
+          method: post
 
 resources:
   Resources:
@@ -62,12 +69,12 @@ resources:
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
-          - AttributeName: RoomType
+          - AttributeName: type
             AttributeType: S
         KeySchema:
-          - AttributeName: id
+          - AttributeName: type
             KeyType: HASH
-          - AttributeName: RoomType
+          - AttributeName: id
             KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
         # GlobalSecondaryIndexes:
@@ -85,12 +92,12 @@ resources:
         AttributeDefinitions:
           - AttributeName: bookingReference
             AttributeType: S
-          - AttributeName: CustomerId
+          - AttributeName: customer
             AttributeType: S
         KeySchema:
           - AttributeName: bookingReference
             KeyType: HASH
-          - AttributeName: CustomerId
+          - AttributeName: customer
             KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
 
@@ -101,4 +108,3 @@ resources:
         #         KeyType: "RANGE"
         #     Projection:
         #       ProjectionType: ALL
-
