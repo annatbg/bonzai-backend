@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
-        const { customerName, roomTYP, numberOfGuests, numberOfNights, checkin } = body;
+        const { customerName, roomTYP, numberOfGuests, numberOfNights, checkIn } = body;
 
         // // Kontrollera att alla nödvändiga fält finns
         // if (customerName === undefined || roomTYP === undefined || numberOfGuests === undefined || numberOfNights === undefined || checkin === undefined) {
@@ -22,15 +22,13 @@ exports.handler = async (event) => {
             return acc;
         }, {});
 
-        console.log("Room Count:", roomCount);
-        console.log("Number of Guests:", numberOfGuests);
         
-        // let totalAvailableCapacity = 0
+
 
         // Kontrollera tillgängliga rum för varje rumstyp
         for (let roomType in roomCount) {  
             const requiredRooms = roomCount[roomType];
-            console.log(`Checking availability for room type: ${roomType}, Required rooms: ${requiredRooms}`);
+        
             // Hämta tillgängliga rum av den typen som matchar antalet gäster
             const availableRoomsParams = await db.query({
                 TableName: "rooms",
@@ -68,10 +66,10 @@ exports.handler = async (event) => {
             
             }
        
-            // console.log(validateCapacity());
+
             
         let total = validateCapacity(roomTYP, numberOfGuests) 
-        console.log("hejjjjjjjjjjj:" ,total);
+
         
 
         if (!total) {
@@ -92,14 +90,14 @@ exports.handler = async (event) => {
                 rooms: roomTYP,
                 guests: numberOfGuests,
                 nights: numberOfNights,
-                checkInDate: checkin
+                checkInDate: checkIn
             }
         };
         await db.put(newBookingParams);
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: 'Booking successful' })
+            body: JSON.stringify({ message: 'Booking successful', Booking: newBookingParams.Item })
         };
             
 
