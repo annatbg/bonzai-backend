@@ -85,7 +85,7 @@ resources:
         AttributeDefinitions:
           - AttributeName: bookingReference
             AttributeType: S
-          - AttributeName: customer
+          - AttributeName: booking
             AttributeType: S
         KeySchema:
           - AttributeName: booking

@@ -65,12 +65,8 @@ exports.handler = async (event) => {
                 return totalCapacity >= guests;
             
             }
-       
-
             
         let total = validateCapacity(roomTYP, numberOfGuests) 
-
-        
 
         if (!total) {
             console.log("toobad");
