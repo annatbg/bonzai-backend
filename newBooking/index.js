@@ -4,53 +4,105 @@ const { v4: uuidv4 } = require('uuid');
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
-        const { customerName, roomType, numberOfGuests, numberOfNights, checkIn } = body;
+        const { customerName, roomTYP, numberOfGuests, numberOfNights, checkin } = body;
 
-        // Kontrollera att alla nödvändiga fält finns
-        if (!customerName || !roomType || !numberOfGuests || !numberOfNights) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({
-                    message: 'Missing required fields: customerName, roomType, numberOfGuests, numberOfNights',
-                }),
-            };
-        }
+        // // Kontrollera att alla nödvändiga fält finns
+        // if (customerName === undefined || roomTYP === undefined || numberOfGuests === undefined || numberOfNights === undefined || checkin === undefined) {
+        //     return {
+        //         statusCode: 400,
+        //         body: JSON.stringify({
+        //             message: 'Missing required fields: customerName, roomTYP, numberOfGuests, numberOfNights, checkin',
+        //         }),
+        //     };
+        // }
 
-        // Kontrollera tillgängliga rum för varje rumtyp
-        const roomChecks = await Promise.all(roomType.map(async (type) => {
+        // Räkna förekomsten av varje rumstyp
+        const roomCount = roomTYP.reduce((acc, currentRoomTYP) => {  
+            acc[currentRoomTYP] = (acc[currentRoomTYP] || 0) + 1;
+            return acc;
+        }, {});
+
+        console.log("Room Count:", roomCount);
+        console.log("Number of Guests:", numberOfGuests);
+        
+        // let totalAvailableCapacity = 0
+
+        // Kontrollera tillgängliga rum för varje rumstyp
+        for (let roomType in roomCount) {  
+            const requiredRooms = roomCount[roomType];
+            console.log(`Checking availability for room type: ${roomType}, Required rooms: ${requiredRooms}`);
+            // Hämta tillgängliga rum av den typen som matchar antalet gäster
             const availableRoomsParams = await db.query({
                 TableName: "rooms",
-                KeyConditionExpression: "type = :roomType AND begins_with(id, :roomPrefix)",
+                KeyConditionExpression: "#typeAlias = :roomType AND begins_with(id, :roomPrefix)",  // Använd alias för partition key
                 FilterExpression: "allowedGuests >= :numberOfGuests",
+                ExpressionAttributeNames: {
+                    '#typeAlias': 'type'  // Alias för partition key
+                },
                 ExpressionAttributeValues: {
-                    ':roomType': type, // Partition key
-                    ':roomPrefix': `${type}:`, // Prefix för sort key
+                    ':roomType': "room",  // Partition key som alltid är "room"
+                    ':roomPrefix': `${roomType}:`,  // Prefix för sort key som baseras på rumstyp (t.ex. "single:", "double:")
                     ':numberOfGuests': numberOfGuests
                 }
             });
 
-            // Returnera om det finns tillgängliga rum för den aktuella typen
-            return availableRoomsParams.Items.length > 0;
-        }));
 
+        }
+            const validateCapacity = (rooms, guests) => {
+                const totalCapacity = rooms.reduce((sum, room) => {
+                    console.log(sum);
+
+                switch (room) {
+                case 'suite':
+                    return sum + 3;
+                case 'double':
+                    return sum + 2;
+                case 'single':
+                    return sum + 1;
+                
+                default:
+                return sum
+            };
+            }, 0)                
+                return totalCapacity >= guests;
+            
+            }
+       
+            // console.log(validateCapacity());
+            
+        let total = validateCapacity(roomTYP, numberOfGuests) 
+        console.log("hejjjjjjjjjjj:" ,total);
+        
+
+        if (!total) {
+            console.log("toobad");
+            return {
+                statusCode: 400,
+                body: JSON.stringify({message: "NOT ALLOWED!!!!!!!!"})
+            }
+            
+        } 
+        console.log("hej");
         // Om alla rumstyper är tillgängliga kan vi skapa en ny bokning
         const newBookingParams = {
             TableName: "bookings",
             Item: {
                 bookingReference: uuidv4(),
                 customer: customerName,
-                rooms: roomType,
+                rooms: roomTYP,
                 guests: numberOfGuests,
                 nights: numberOfNights,
-                checkInDate: checkIn
+                checkInDate: checkin
             }
         };
         await db.put(newBookingParams);
 
         return {
             statusCode: 200,
-            body: JSON.stringify(roomChecks)
+            body: JSON.stringify({ message: 'Booking successful' })
         };
+            
+
 
     } catch (error) {
         return {
@@ -114,6 +166,27 @@ exports.handler = async (event) => {
 
 
 
+
+
+// const availableRooms = availableRoomsParams.Items;
+// console.log(`Query Result for ${roomType}:, availableRooms`);
+
+// const totalRoomCapacity = availableRooms.reduce((sum, room) => sum + room.allowedGuests, 0);
+// totalAvailableCapacity += totalRoomCapacity;
+
+// console.log(`Available Rooms for ${roomType}:`, availableRooms);
+// console.log(`Total Capacity for ${roomType}:`, totalRoomCapacity);
+
+
+// if (availableRooms.length < requiredRooms) {
+//     return {
+//         statusCode: 400,
+//         body: JSON.stringify({
+//             message: `Too many guests for ${roomType}`
+//         }),
+//     };
+// }
+// }
 
 
 
