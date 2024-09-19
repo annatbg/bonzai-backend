@@ -43,7 +43,7 @@ functions:
     handler: getBookings/index.handler
     events:
       - httpApi:
-          path: /bookings
+          path: /bookings/{booking}
           method: get
           
   newBooking:
@@ -85,7 +85,7 @@ resources:
         AttributeDefinitions:
           - AttributeName: bookingReference
             AttributeType: S
-          - AttributeName: customer
+          - AttributeName: booking
             AttributeType: S
         KeySchema:
           - AttributeName: booking
