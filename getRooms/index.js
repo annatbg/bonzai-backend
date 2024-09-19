@@ -5,7 +5,6 @@ exports.handler = async (event) => {
     
     try {
         const type = event.pathParameters.type;
-        console.log("Type: ", type);
 
         const { Items } = await db.query({
             TableName: "rooms",
@@ -14,18 +13,15 @@ exports.handler = async (event) => {
                 ":type": type
             },
             ExpressionAttributeNames: {
-                '#typeAlias': 'type'  // Alias för partition key
+                '#typeAlias': 'type'  // Alias för partition key pga type är reserverat i dynamoDB
             },
         });
-
-        console.log("Query Result: ", Items);
 
         return {
             statusCode: 200,
             body: JSON.stringify({ Rooms: Items })
         };
     } catch (error) {
-        console.error("Error querying DynamoDB:", error);
         return {
             statusCode: 500,
             body: JSON.stringify({ message: "Couldn't get rooms", error: error.message })
