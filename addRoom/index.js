@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     // console.log(event);
     
 
-    if (body.roomType === undefined || body.price === undefined|| body.allowedGuests === undefined) {
+    if (body.roomType === undefined || body.price === undefined || body.allowedGuests === undefined) {
         return {
             statusCode: 400,
             body: JSON.stringify({message: "Please provide the following keys: type, price, and allowedGuests."})

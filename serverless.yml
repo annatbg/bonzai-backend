@@ -85,12 +85,14 @@ resources:
         AttributeDefinitions:
           - AttributeName: bookingReference
             AttributeType: S
-          - AttributeName: booking
+          - AttributeName: customer
             AttributeType: S
         KeySchema:
           - AttributeName: booking
             KeyType: HASH
           - AttributeName: bookingReference
+            KeyType: HASH
+          - AttributeName: customer
             KeyType: "RANGE"
         BillingMode: PAY_PER_REQUEST
 
