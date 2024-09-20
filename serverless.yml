@@ -15,6 +15,7 @@ provider:
             - dynamodb:Scan
             - dynamodb:GetItem
             - dynamodb:PutItem
+            - dynamodb:DeleteItem
           Resource: arn:aws:dynamodb:${aws:region}:*:table/*
 
 functions:
