@@ -4,61 +4,66 @@ const { v4: uuidv4 } = require('uuid');
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
-        const { customerName, roomTYP, numberOfGuests, numberOfNights, checkIn } = body;
+        const { customerName, roomType, numberOfGuests, numberOfNights, checkIn } = body;
 
-        // // Kontrollera att alla nödvändiga fält finns
-        // if (customerName === undefined || roomTYP === undefined || numberOfGuests === undefined || numberOfNights === undefined || checkin === undefined) {
-        //     return {
-        //         statusCode: 400,
-        //         body: JSON.stringify({
-        //             message: 'Missing required fields: customerName, roomTYP, numberOfGuests, numberOfNights, checkin',
-        //         }),
-        //     };
-        // }
+        // Kontrollera att alla nödvändiga fält finns
+        if (customerName === "" || undefined) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: 'Please correct the customerName field. Cannot be an empty string',
+                }),
+            };
+        }
+        if (roomType.length <= 0 || undefined ) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                message: 'Please correct the roomType field. Cannot be empty.',
+                    }),
+                };
+        }
 
-        // Räkna förekomsten av varje rumstyp
-        // const roomCount = roomTYP.reduce((acc, currentRoomTYP) => {  
-        //     acc[currentRoomTYP] = (acc[currentRoomTYP] || 0) + 1;
-        //     return acc;
-        // }, {});
+        if (numberOfGuests <= 0 || undefined) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                message: 'Please correct the numberOfGuests field. Cannot be less than 1.',
+                    }),
+                };
+        }
 
-        
+        if (numberOfNights <= 0 || undefined) {
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                message: 'Please correct the numberOfNights field. Cannot be less than 1.',
+                    }),
+                };
+        }
+
+        if (checkIn === undefined){
+            return {
+                statusCode: 400,
+                body: JSON.stringify({
+                    message: 'Please correct the checkIn field, cannot be empty. Please use format 2024-10-01',
+                }),
+            };
+        }
 
 
-        // // Kontrollera tillgängliga rum för varje rumstyp
-        // for (let roomType in roomCount) {  
-        //     const requiredRooms = roomCount[roomType];
-        
-        //     // Hämta tillgängliga rum av den typen som matchar antalet gäster
-        //     const availableRoomsParams = await db.query({
-        //         TableName: "rooms",
-        //         KeyConditionExpression: "#typeAlias = :roomType AND begins_with(id, :roomPrefix)",  // Använd alias för partition key
-        //         FilterExpression: "allowedGuests >= :numberOfGuests",
-        //         ExpressionAttributeNames: {
-        //             '#typeAlias': 'type'  // Alias för partition key
-        //         },
-        //         ExpressionAttributeValues: {
-        //             ':roomType': "room",  // Partition key som alltid är "room"
-        //             ':roomPrefix': `${roomType}:`,  // Prefix för sort key som baseras på rumstyp (t.ex. "single:", "double:")
-        //             ':numberOfGuests': numberOfGuests
-        //         }
-        //     });
 
-
-        // }
-            const validateCapacity = (rooms, guests) => {
-                const totalCapacity = rooms.reduce((sum, room) => {
-                    console.log(sum);
-
-                switch (room) {
-                case 'suite':
-                    return sum + 3;
-                case 'double':
-                    return sum + 2;
-                case 'single':
-                    return sum + 1;
+        const validateCapacity = (rooms, guests) => {
+            const totalCapacity = rooms.reduce((sum, room) => {
+            switch (room) {
+            case 'suite':
+                return sum + 3;
+            case 'double':
+                return sum + 2;
+            case 'single':
+                return sum + 1;
                 
-                default:
+            default:
                 return sum
             };
             }, 0)                
@@ -66,24 +71,23 @@ exports.handler = async (event) => {
             
             }
             
-        let total = validateCapacity(roomTYP, numberOfGuests) 
+        let total = validateCapacity(roomType, numberOfGuests) 
 
         if (!total) {
-            console.log("toobad");
             return {
                 statusCode: 400,
-                body: JSON.stringify({message: "NOT ALLOWED!!!!!!!!"})
+                body: JSON.stringify({message: "Sorry, youre trying to book over the capacity. Please adjust the number of guests to the number of allowed guests per room."})
             }
             
         } 
-        console.log("hej");
+
         // Om alla rumstyper är tillgängliga kan vi skapa en ny bokning
         const newBookingParams = {
             TableName: "bookings",
             Item: {
                 bookingReference: uuidv4(),
                 customer: customerName,
-                typeOfRooms: roomTYP,
+                typeOfRooms: roomType,
                 guests: numberOfGuests,
                 nights: numberOfNights,
                 checkInDate: checkIn,
