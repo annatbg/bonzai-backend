@@ -20,7 +20,9 @@
 
 | Type   | ID (string)             | Allowed Guests | Price |
 |--------|-------------------------|----------------|-------|
-| Single | single:25db2e7f-9813...  | 1              | 500   |
+| room   | single:25db2e7f-9813...  | 1              | 500   |
+| room   | double:24db2e9f-9013...  | 2              | 1000  |
+| room   | suite:11db2e9f-9089...   | 3              | 1500  |
 
 
 ### Endpoints
