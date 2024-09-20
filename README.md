@@ -27,8 +27,8 @@
 
 ### Endpoints
 
-- GET - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/rooms/{type}
-- POST - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/rooms
-- DELETE - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings/{id}
-- GET - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings/{booking}
-- POST - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings
+- GET - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/rooms/{type} (hämta alla rum, type = room)
+- POST - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/rooms  (lägg till nytt rum i rooms-table)
+- DELETE - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings/{id} (avbokning, ange bokningsreferensen på id)
+- GET - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings/{booking} (hämta alla bokningar, booking = room )
+- POST - https://zyfeqi0n9g.execute-api.eu-north-1.amazonaws.com/bookings (lägg en ny bokning)
