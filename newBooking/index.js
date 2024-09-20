@@ -81,6 +81,15 @@ exports.handler = async (event) => {
             
         } 
 
+        const totalRooms = 20
+
+        const allBookings = await db.scan({
+            TableName: "bookings",
+
+        })
+
+        
+
         // Om alla rumstyper är tillgängliga kan vi skapa en ny bokning
         const newBookingParams = {
             TableName: "bookings",
@@ -91,7 +100,8 @@ exports.handler = async (event) => {
                 guests: numberOfGuests,
                 nights: numberOfNights,
                 checkInDate: checkIn,
-                booking: "room"
+                booking: "room",
+                numberOfRooms: roomType.length
             }
         };
         await db.put(newBookingParams);
