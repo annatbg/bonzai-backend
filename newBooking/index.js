@@ -7,7 +7,6 @@ exports.handler = async (event) => {
     const { customerName, roomType, numberOfGuests, numberOfNights, checkIn } =
       body;
 
-    // Validate the required fields
     if (!customerName || customerName === "") {
       return {
         statusCode: 400,
@@ -57,7 +56,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Function to validate capacity
     const validateCapacity = (rooms, guests) => {
       const totalCapacity = rooms.reduce((sum, room) => {
         switch (room) {
@@ -76,6 +74,24 @@ exports.handler = async (event) => {
 
     let isValidCapacity = validateCapacity(roomType, numberOfGuests);
 
+    const calculateSum = (rooms, nights) => {
+      const totalSum = rooms.reduce((sum, room) => {
+        switch (room) {
+          case "suite":
+            return sum + 1500;
+          case "double":
+            return sum + 1000;
+          case "single":
+            return sum + 500;
+          default:
+            return sum;
+        }
+      }, 0);
+      return totalSum * nights;
+    };
+
+    let pricePerBooking = calculateSum(roomType, numberOfNights);
+
     if (!isValidCapacity) {
       return {
         statusCode: 400,
@@ -86,10 +102,9 @@ exports.handler = async (event) => {
       };
     }
 
-    const totalRooms = 20; // Example: replace with the actual total room count
+    const totalRooms = 20;
     let numberOfRooms = roomType.length;
 
-    // Scan the bookings table to count total booked rooms
     const allBookings = await db.scan({
       TableName: "bookings",
     });
@@ -97,8 +112,6 @@ exports.handler = async (event) => {
     let totalBookedRooms = allBookings.Items.reduce((sum, booking) => {
       return sum + booking.numberOfRooms;
     }, 0);
-
-    console.log("Total booked rooms:", totalBookedRooms);
 
     if (totalBookedRooms >= totalRooms) {
       return {
@@ -118,7 +131,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Create a new booking
     const newBookingParams = {
       TableName: "bookings",
       Item: {
@@ -128,6 +140,7 @@ exports.handler = async (event) => {
         guests: numberOfGuests,
         nights: numberOfNights,
         checkInDate: checkIn,
+        price: pricePerBooking,
         booking: "room",
         numberOfRooms: numberOfRooms,
       },
