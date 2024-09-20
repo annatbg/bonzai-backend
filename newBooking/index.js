@@ -17,35 +17,35 @@ exports.handler = async (event) => {
         // }
 
         // Räkna förekomsten av varje rumstyp
-        const roomCount = roomTYP.reduce((acc, currentRoomTYP) => {  
-            acc[currentRoomTYP] = (acc[currentRoomTYP] || 0) + 1;
-            return acc;
-        }, {});
+        // const roomCount = roomTYP.reduce((acc, currentRoomTYP) => {  
+        //     acc[currentRoomTYP] = (acc[currentRoomTYP] || 0) + 1;
+        //     return acc;
+        // }, {});
 
         
 
 
-        // Kontrollera tillgängliga rum för varje rumstyp
-        for (let roomType in roomCount) {  
-            const requiredRooms = roomCount[roomType];
+        // // Kontrollera tillgängliga rum för varje rumstyp
+        // for (let roomType in roomCount) {  
+        //     const requiredRooms = roomCount[roomType];
         
-            // Hämta tillgängliga rum av den typen som matchar antalet gäster
-            const availableRoomsParams = await db.query({
-                TableName: "rooms",
-                KeyConditionExpression: "#typeAlias = :roomType AND begins_with(id, :roomPrefix)",  // Använd alias för partition key
-                FilterExpression: "allowedGuests >= :numberOfGuests",
-                ExpressionAttributeNames: {
-                    '#typeAlias': 'type'  // Alias för partition key
-                },
-                ExpressionAttributeValues: {
-                    ':roomType': "room",  // Partition key som alltid är "room"
-                    ':roomPrefix': `${roomType}:`,  // Prefix för sort key som baseras på rumstyp (t.ex. "single:", "double:")
-                    ':numberOfGuests': numberOfGuests
-                }
-            });
+        //     // Hämta tillgängliga rum av den typen som matchar antalet gäster
+        //     const availableRoomsParams = await db.query({
+        //         TableName: "rooms",
+        //         KeyConditionExpression: "#typeAlias = :roomType AND begins_with(id, :roomPrefix)",  // Använd alias för partition key
+        //         FilterExpression: "allowedGuests >= :numberOfGuests",
+        //         ExpressionAttributeNames: {
+        //             '#typeAlias': 'type'  // Alias för partition key
+        //         },
+        //         ExpressionAttributeValues: {
+        //             ':roomType': "room",  // Partition key som alltid är "room"
+        //             ':roomPrefix': `${roomType}:`,  // Prefix för sort key som baseras på rumstyp (t.ex. "single:", "double:")
+        //             ':numberOfGuests': numberOfGuests
+        //         }
+        //     });
 
 
-        }
+        // }
             const validateCapacity = (rooms, guests) => {
                 const totalCapacity = rooms.reduce((sum, room) => {
                     console.log(sum);
