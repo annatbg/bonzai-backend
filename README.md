@@ -8,17 +8,19 @@
 
 ### Database relationships
 
-![our data tables](image.png)
+### Bookings
 
-Bookings
-Booking Reference (sort key)	Customer	Check-in Date	Guests	Nights	Type of Rooms
-028b7cf9-fca5-4...	Ahmed	2024-10-01	1	3	Single
-228b7fca-a816-4...	Rebban	2024-10-01	2	3	Single, Single
-4cefb028-7868-4...	Ahmed	2024-10-01	1	3	Double
+| Booking Reference (sort key)   | Customer | Check-in Date | Guests | Nights | Type of Rooms      |
+|--------------------------------|----------|---------------|--------|--------|-------------------|
+| 028b7cf9-fca5-4...             | Ahmed    | 2024-10-01    | 1      | 3      | Single            |
+| 228b7fca-a816-4...             | Rebban   | 2024-10-01    | 2      | 3      | Single, Single    |
+| 4cefb028-7868-4...             | Anna     | 2024-10-01    | 1      | 3      | Double            |
 
-Room Types Table
-Type	ID (string)	Allowed Guests	Price
-Single	single:25db2e7f-9813...	1	500
+### Room Types Table
+
+| Type   | ID (string)             | Allowed Guests | Price |
+|--------|-------------------------|----------------|-------|
+| Single | single:25db2e7f-9813...  | 1              | 500   |
 
 
 ### Endpoints
