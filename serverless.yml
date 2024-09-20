@@ -43,7 +43,7 @@ functions:
     handler: getBookings/index.handler
     events:
       - httpApi:
-          path: /bookings
+          path: /bookings/{booking}
           method: get
 
   newBooking:
