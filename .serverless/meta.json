@@ -1,5 +1,5 @@
 {
-  "C:\\Users\\rebec\\Desktop\\bonzai-backend": {
+  "C:\\Users\\dator\\OneDrive\\Skrivbord\\Programmering\\bonzai-backend": {
     "versionSfCore": null,
     "versionFramework": "4.4.0",
     "isWithinCompose": false,
@@ -162,8 +162,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                       },
                       "Handler": "getRooms/index.handler",
                       "Runtime": "nodejs20.x",
@@ -185,8 +185,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                       },
                       "Handler": "addRoom/index.handler",
                       "Runtime": "nodejs20.x",
@@ -208,8 +208,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                       },
                       "Handler": "deleteBooking/index.handler",
                       "Runtime": "nodejs20.x",
@@ -231,8 +231,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                       },
                       "Handler": "getBookings/index.handler",
                       "Runtime": "nodejs20.x",
@@ -254,8 +254,8 @@
                     "Type": "AWS::Lambda::Function",
                     "Properties": {
                       "Code": {
-                        "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                        "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                        "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                        "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                       },
                       "Handler": "newBooking/index.handler",
                       "Runtime": "nodejs20.x",
@@ -273,54 +273,54 @@
                       "NewBookingLogGroup"
                     ]
                   },
-                  "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc": {
+                  "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "GetRoomsLambdaFunction"
                       },
-                      "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                      "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
                     }
                   },
-                  "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU": {
+                  "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "AddRoomLambdaFunction"
                       },
-                      "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                      "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
                     }
                   },
-                  "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8": {
+                  "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "DeleteBookingLambdaFunction"
                       },
-                      "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                      "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
                     }
                   },
-                  "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo": {
+                  "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "GetBookingsLambdaFunction"
                       },
-                      "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                      "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
                     }
                   },
-                  "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4": {
+                  "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "NewBookingLambdaFunction"
                       },
-                      "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                      "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
                     }
                   },
                   "HttpApi": {
@@ -775,7 +775,7 @@
                 },
                 "Outputs": {
                   "ServerlessDeploymentBucketName": {
-                    "Value": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+                    "Value": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
                     "Export": {
                       "Name": "sls-bonzai-dev-ServerlessDeploymentBucketName"
                     }
@@ -783,7 +783,7 @@
                   "GetRoomsLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc"
+                      "Ref": "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
@@ -792,7 +792,7 @@
                   "AddRoomLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU"
+                      "Ref": "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
@@ -801,7 +801,7 @@
                   "DeleteBookingLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8"
+                      "Ref": "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-DeleteBookingLambdaFunctionQualifiedArn"
@@ -810,7 +810,7 @@
                   "GetBookingsLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo"
+                      "Ref": "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
@@ -819,7 +819,7 @@
                   "NewBookingLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4"
+                      "Ref": "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY"
                     },
                     "Export": {
                       "Name": "sls-bonzai-dev-NewBookingLambdaFunctionQualifiedArn"
@@ -882,7 +882,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc"
+                "versionLogicalId": "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE"
               },
               "addRoom": {
                 "handler": "addRoom/index.handler",
@@ -902,7 +902,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU"
+                "versionLogicalId": "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q"
               },
               "deleteBooking": {
                 "handler": "deleteBooking/index.handler",
@@ -922,7 +922,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8"
+                "versionLogicalId": "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk"
               },
               "getBookings": {
                 "handler": "getBookings/index.handler",
@@ -942,7 +942,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo"
+                "versionLogicalId": "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU"
               },
               "newBooking": {
                 "handler": "newBooking/index.handler",
@@ -962,7 +962,7 @@
                 "timeout": 6,
                 "runtime": "nodejs20.x",
                 "vpc": {},
-                "versionLogicalId": "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4"
+                "versionLogicalId": "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY"
               }
             },
             "resources": {
@@ -1025,7 +1025,7 @@
               "Outputs": {}
             }
           },
-          "configFileDirPath": "C:\\Users\\rebec\\Desktop\\bonzai-backend",
+          "configFileDirPath": "C:\\Users\\dator\\OneDrive\\Skrivbord\\Programmering\\bonzai-backend",
           "config": {
             "type": "aws"
           },
@@ -1044,7 +1044,7 @@
       }
     },
     "composeServiceName": null,
-    "servicePath": "C:\\Users\\rebec\\Desktop\\bonzai-backend",
+    "servicePath": "C:\\Users\\dator\\OneDrive\\Skrivbord\\Programmering\\bonzai-backend",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "service": "bonzai",
@@ -1198,8 +1198,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                 },
                 "Handler": "getRooms/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1221,8 +1221,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                 },
                 "Handler": "addRoom/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1244,8 +1244,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                 },
                 "Handler": "deleteBooking/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1267,8 +1267,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                 },
                 "Handler": "getBookings/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1290,8 +1290,8 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-eu-north-1-07321881-45e5",
-                  "S3Key": "serverless/bonzai/dev/1726821588478-2024-09-20T08:39:48.478Z/bonzai.zip"
+                  "S3Bucket": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
+                  "S3Key": "serverless/bonzai/dev/1726830466452-2024-09-20T11:07:46.452Z/bonzai.zip"
                 },
                 "Handler": "newBooking/index.handler",
                 "Runtime": "nodejs20.x",
@@ -1309,54 +1309,54 @@
                 "NewBookingLogGroup"
               ]
             },
-            "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc": {
+            "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetRoomsLambdaFunction"
                 },
-                "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
               }
             },
-            "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU": {
+            "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AddRoomLambdaFunction"
                 },
-                "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
               }
             },
-            "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8": {
+            "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "DeleteBookingLambdaFunction"
                 },
-                "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
               }
             },
-            "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo": {
+            "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "GetBookingsLambdaFunction"
                 },
-                "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
               }
             },
-            "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4": {
+            "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "NewBookingLambdaFunction"
                 },
-                "CodeSha256": "SUFiRdVVUUvTSK08ry4lOH7FyFgq4OHoOK0v9GusA5c="
+                "CodeSha256": "sew6tNVLbGeqYsk1Hliu1xt4/r8xss4F4Ev48yenoFk="
               }
             },
             "HttpApi": {
@@ -1811,7 +1811,7 @@
           },
           "Outputs": {
             "ServerlessDeploymentBucketName": {
-              "Value": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+              "Value": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
               "Export": {
                 "Name": "sls-bonzai-dev-ServerlessDeploymentBucketName"
               }
@@ -1819,7 +1819,7 @@
             "GetRoomsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc"
+                "Ref": "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
@@ -1828,7 +1828,7 @@
             "AddRoomLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU"
+                "Ref": "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
@@ -1837,7 +1837,7 @@
             "DeleteBookingLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8"
+                "Ref": "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-DeleteBookingLambdaFunctionQualifiedArn"
@@ -1846,7 +1846,7 @@
             "GetBookingsLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo"
+                "Ref": "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
@@ -1855,7 +1855,7 @@
             "NewBookingLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4"
+                "Ref": "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY"
               },
               "Export": {
                 "Name": "sls-bonzai-dev-NewBookingLambdaFunctionQualifiedArn"
@@ -1918,7 +1918,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "GetRoomsLambdaVersionADxH7z2YOc793OaKlL7DTe68bvZrp5FJ9PpMVafjc"
+          "versionLogicalId": "GetRoomsLambdaVersionyXQSWd4OxoQpZhvOQbFEOd0W8mh363SQvGG00uW6XE"
         },
         "addRoom": {
           "handler": "addRoom/index.handler",
@@ -1938,7 +1938,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "AddRoomLambdaVersioncr99Qp74kXyfjaYkmAacE4sv1tjz6S8ZBmx4qU"
+          "versionLogicalId": "AddRoomLambdaVersion8y1mYhjP55yqm91Xuo9ixQQEcLfcMnn2A28C6i9ft6Q"
         },
         "deleteBooking": {
           "handler": "deleteBooking/index.handler",
@@ -1958,7 +1958,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "DeleteBookingLambdaVersionDDiRtAkQ9686eM4lsgAzqxP3lhvJuoLg96r4jWZ8"
+          "versionLogicalId": "DeleteBookingLambdaVersionFq1IxonJ6fcNOC7ftUAcNDHCC3y14xz6JLIzM9WHk"
         },
         "getBookings": {
           "handler": "getBookings/index.handler",
@@ -1978,7 +1978,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "GetBookingsLambdaVersionhXYecGat3pRr8Q9KEMICk8ibL9VcrA1Dkas3L9gXo"
+          "versionLogicalId": "GetBookingsLambdaVersionlOKNC8aw5d46ts1453ykwdgPgktvN0NIh4HQy3CTSSU"
         },
         "newBooking": {
           "handler": "newBooking/index.handler",
@@ -1998,7 +1998,7 @@
           "timeout": 6,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "NewBookingLambdaVersion9PSu5c1IEb5t1EBBJWYDCFY7Adwq2RJsCFshe8jl4"
+          "versionLogicalId": "NewBookingLambdaVersiono3QT1x0Lk46cLp64oES7B0qz0OVTArGy7ia77GyY"
         }
       },
       "resources": {
@@ -2068,13 +2068,13 @@
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "ebc7c97ad3fcfb4ca8900462392cf160",
+    "machineId": "7c7777551fadac7e236a8b80df491166",
     "stage": "dev",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
-    "orgId": "5d743e18-3d3e-43a5-9cc0-62b473aca814",
-    "orgName": "jsd23",
-    "userId": "4xhQq6rJbd0yBKMcPD",
+    "orgId": "22ef86e7-c736-4e9a-b3ab-223376e51322",
+    "orgName": "ahmedabbas",
+    "userId": "lRsVzwLxQZPgX9KRRb",
     "dashboard": {
       "isEnabledForService": false,
       "requiredAuthentication": false,
@@ -2084,66 +2084,66 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "userName": "jsd23",
+    "userName": "ahmedabbas",
     "subscription": null,
-    "userEmail": "rebeckaelin@hotmail.com",
+    "userEmail": "ahmed2004a2@gmail.com",
     "serviceProviderAwsRegion": "eu-north-1",
     "serviceProviderAwsCredentials": "<REDACTED>",
-    "serviceProviderAwsAccountId": "440744238402",
+    "serviceProviderAwsAccountId": "288761744319",
     "projectType": "traditional",
     "versionSf": "4.4.0",
     "serviceProviderAwsCfStackName": "bonzai-dev",
     "integrations": {},
-    "serviceUniqueId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/2febed50-768a-11ef-936e-0e4a80fab1d3",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:440744238402:stack/bonzai-dev/2febed50-768a-11ef-936e-0e4a80fab1d3",
-    "serviceProviderAwsCfStackCreated": "2024-09-19T13:22:15.412Z",
-    "serviceProviderAwsCfStackUpdated": "2024-09-20T08:39:51.966Z",
+    "serviceUniqueId": "arn:aws:cloudformation:eu-north-1:288761744319:stack/bonzai-dev/8a4c5860-7721-11ef-b08d-065b795ea46d",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:eu-north-1:288761744319:stack/bonzai-dev/8a4c5860-7721-11ef-b08d-065b795ea46d",
+    "serviceProviderAwsCfStackCreated": "2024-09-20T07:25:41.098Z",
+    "serviceProviderAwsCfStackUpdated": "2024-09-20T11:07:55.221Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "AddRoomLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-addRoom:106",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-addRoom:48",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-AddRoomLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "NewBookingLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-newBooking:88",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-newBooking:46",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-NewBookingLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "DeleteBookingLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-deleteBooking:92",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-deleteBooking:46",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-DeleteBookingLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetBookingsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-getBookings:92",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-getBookings:46",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "GetRoomsLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:eu-north-1:440744238402:function:bonzai-dev-getRooms:106",
+        "OutputValue": "arn:aws:lambda:eu-north-1:288761744319:function:bonzai-dev-getRooms:48",
         "Description": "Current Lambda function version",
         "ExportName": "sls-bonzai-dev-GetRoomsLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "HttpApiId",
-        "OutputValue": "cl92am6tel",
+        "OutputValue": "4pudjyv045",
         "Description": "Id of the HTTP API",
         "ExportName": "sls-bonzai-dev-HttpApiId"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
-        "OutputValue": "serverless-framework-deployments-eu-north-1-07321881-45e5",
+        "OutputValue": "serverless-framework-deployments-eu-north-1-3d169629-f99d",
         "ExportName": "sls-bonzai-dev-ServerlessDeploymentBucketName"
       },
       {
         "OutputKey": "HttpApiUrl",
-        "OutputValue": "https://cl92am6tel.execute-api.eu-north-1.amazonaws.com",
+        "OutputValue": "https://4pudjyv045.execute-api.eu-north-1.amazonaws.com",
         "Description": "URL of the HTTP API",
         "ExportName": "sls-bonzai-dev-HttpApiUrl"
       }
