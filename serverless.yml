@@ -71,13 +71,7 @@ resources:
           - AttributeName: id
             KeyType: 'RANGE'
         BillingMode: PAY_PER_REQUEST
-        # GlobalSecondaryIndexes:
-        #   - IndexName: RoomTypeIndex
-        #     KeySchema:
-        #       - AttributeName: RoomType
-        #         KeyType: "RANGE"
-        #     Projection:
-        #       ProjectionType: ALL
+
 
     bookings:
       Type: AWS::DynamoDB::Table
@@ -95,10 +89,3 @@ resources:
             KeyType: 'RANGE'
         BillingMode: PAY_PER_REQUEST
 
-        # GlobalSecondaryIndexes:
-        #   - IndexName:
-        #     KeySchema:
-        #       - AttributeName:
-        #         KeyType: "RANGE"
-        #     Projection:
-        #       ProjectionType: ALL
